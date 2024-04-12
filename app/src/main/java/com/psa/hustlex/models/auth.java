@@ -1,11 +1,11 @@
-package com.psa.hustlex.auth;
+package com.psa.hustlex.models;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "login")
-public class UsernamePassword {
+public class auth {
 @NonNull
     @PrimaryKey
     String username;

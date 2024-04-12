@@ -26,8 +26,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.psa.hustlex.R;
 import com.psa.hustlex.datastructures.CustomPriorityQueue;
 import com.psa.hustlex.helpers.NotifierAlarm;
-import com.psa.hustlex.reminders.AdapterReminders;
-import com.psa.hustlex.reminders.Reminders;
+import com.psa.hustlex.helpers.AdapterReminders;
+import com.psa.hustlex.models.Reminders;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
@@ -39,7 +39,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
-public class MainPage extends AppCompatActivity {
+public class ReminderScreen extends AppCompatActivity {
     private FloatingActionButton add;
     private Dialog dialog;
     private RecyclerView recyclerView;
@@ -136,8 +136,8 @@ public class MainPage extends AppCompatActivity {
 
         selectDate.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
-            DatePickerDialog datePickerDialog = new DatePickerDialog(MainPage.this, (view, year, month, dayOfMonth) -> {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(MainPage.this, (view1, hourOfDay, minute) -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(ReminderScreen.this, (view, year, month, dayOfMonth) -> {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(ReminderScreen.this, (view1, hourOfDay, minute) -> {
                     Calendar newDate = Calendar.getInstance();
                     newDate.set(year, month, dayOfMonth, hourOfDay, minute, 0);
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
@@ -154,7 +154,7 @@ public class MainPage extends AppCompatActivity {
                 String dateString = dateText.getText().toString().trim();
                 Date remindDate = parseDate(dateString);
                 if (remindDate == null || remindDate.before(new Date())) {
-                    Toast.makeText(MainPage.this, "Cannot set reminder in the past", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReminderScreen.this, "Cannot set reminder in the past", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Reminders reminder = new Reminders();
@@ -165,7 +165,7 @@ public class MainPage extends AppCompatActivity {
                 refreshRecyclerView();
             } catch (Exception e) {
                 Log.e("AddReminder", "Error adding reminder", e);
-                Toast.makeText(MainPage.this, "Failed to add reminder: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ReminderScreen.this, "Failed to add reminder: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

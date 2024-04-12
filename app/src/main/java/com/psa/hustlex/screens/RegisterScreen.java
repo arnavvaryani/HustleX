@@ -1,8 +1,7 @@
-package com.psa.hustlex.auth;
+package com.psa.hustlex.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.psa.hustlex.R;
 import com.psa.hustlex.database.AppDatabase;
 import com.psa.hustlex.database.RoomDAO;
-import com.psa.hustlex.screens.MainActivity;
+import com.psa.hustlex.models.auth;
 
 
-public class Register extends AppCompatActivity {
+public class RegisterScreen extends AppCompatActivity {
 
     private EditText user,pass;
     private Button register;
@@ -33,10 +32,10 @@ public class Register extends AppCompatActivity {
         register = findViewById(R.id.button);
         login = findViewById(R.id.login);
 
-        appDatabase = AppDatabase.geAppdatabase(Register.this);
+        appDatabase = AppDatabase.geAppdatabase(RegisterScreen.this);
 
         login.setOnClickListener(v -> {
-            Intent intent = new Intent(Register.this, MainActivity.class);
+            Intent intent = new Intent(RegisterScreen.this, LoginScreen.class);
             startActivity(intent);
             finish();
         });
@@ -45,26 +44,25 @@ public class Register extends AppCompatActivity {
 
     }
 
-
     public void registerUser(String user,String pass){
 
         RoomDAO roomDAO = appDatabase.getRoomDAO();
-        UsernamePassword temp = new UsernamePassword();
+        auth temp = new auth();
         temp.setUsername(user);
         temp.setPassword(pass);
         temp.setIsLoggedIn(0);
 
-        UsernamePassword temp2 = roomDAO.getUserWithUsername(user);
+        auth temp2 = roomDAO.getUserWithUsername(user);
         if(temp2==null) {
             roomDAO.Insert(temp);
-            Toast.makeText(Register.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterScreen.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
             AppDatabase.destroyInstance();
-            Intent intent = new Intent(Register.this,MainActivity.class);
+            Intent intent = new Intent(RegisterScreen.this, LoginScreen.class);
             startActivity(intent);
             finish();
         }
         else
-            Toast.makeText(Register.this,"User Already Registered",Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterScreen.this,"User Already Registered",Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -1,4 +1,4 @@
-package com.psa.hustlex.reminders;
+package com.psa.hustlex.models;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

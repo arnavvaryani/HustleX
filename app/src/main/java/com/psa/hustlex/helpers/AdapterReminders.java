@@ -1,4 +1,4 @@
-package com.psa.hustlex.reminders;
+package com.psa.hustlex.helpers;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.psa.hustlex.R;
+import com.psa.hustlex.models.Reminders;
 import com.psa.hustlex.datastructures.CustomPriorityQueue;
 
 import java.util.Iterator;

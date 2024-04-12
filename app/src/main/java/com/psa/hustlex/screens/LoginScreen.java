@@ -3,7 +3,6 @@ package com.psa.hustlex.screens;
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,12 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.auth.Register;
-import com.psa.hustlex.auth.UsernamePassword;
 import com.psa.hustlex.database.AppDatabase;
 import com.psa.hustlex.database.RoomDAO;
+import com.psa.hustlex.models.auth;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginScreen extends AppCompatActivity {
 
     private EditText user,pass;
     private Button login;
@@ -34,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.button);
         register = findViewById(R.id.register);
 
-        appDatabase = AppDatabase.geAppdatabase(MainActivity.this);
+        appDatabase = AppDatabase.geAppdatabase(LoginScreen.this);
 
         RoomDAO roomDAO = appDatabase.getRoomDAO();
-        UsernamePassword temp = roomDAO.getLoggedInUser();
+        auth temp = roomDAO.getLoggedInUser();
         if(temp!=null){
-            Intent intent = new Intent(MainActivity.this,MainPage.class);
+            Intent intent = new Intent(LoginScreen.this, ReminderScreen.class);
             startActivity(intent);
             finish();
         }
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(v -> loginUser(user.getText().toString().trim(),pass.getText().toString().trim()));
 
         register.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Register.class);
+            Intent intent = new Intent(LoginScreen.this, RegisterScreen.class);
             startActivity(intent);
             finish();
         });
@@ -58,22 +56,22 @@ public class MainActivity extends AppCompatActivity {
     public void loginUser(String user,String pass){
 
         RoomDAO roomDAO = appDatabase.getRoomDAO();
-        UsernamePassword temp = roomDAO.getUserWithUsername(user);
+        auth temp = roomDAO.getUserWithUsername(user);
         Toast.makeText(this, temp.getPassword(), Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(MainActivity.this,"Invalid username",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginScreen.this,"Invalid username",Toast.LENGTH_SHORT).show();
 
 
             if(temp.getPassword().equals(pass)){
                 temp.setIsLoggedIn(1);
                 roomDAO.Update(temp);
                 AppDatabase.destroyInstance();
-                Intent intent = new Intent(MainActivity.this,MainPage.class);
+                Intent intent = new Intent(LoginScreen.this, ReminderScreen.class);
                 startActivity(intent);
                 finish();
             }
             else{
-                Toast.makeText(MainActivity.this,"Invalid Password",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginScreen.this,"Invalid Password",Toast.LENGTH_SHORT).show();
             }
 
 

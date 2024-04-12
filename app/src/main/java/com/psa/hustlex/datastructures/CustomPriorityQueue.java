@@ -9,7 +9,6 @@ public class CustomPriorityQueue<E extends Comparable<E>> implements PriorityQue
     private int capacity;
 
     public CustomPriorityQueue(int initialCapacity) {
-
         this.capacity = initialCapacity;
         this.size = 0;
         this.heap = new Object[capacity];

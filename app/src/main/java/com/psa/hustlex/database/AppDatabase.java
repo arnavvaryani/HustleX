@@ -7,12 +7,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.psa.hustlex.auth.UsernamePassword;
+import com.psa.hustlex.models.Reminders;
 import com.psa.hustlex.helpers.DateTypeConverter;
-import com.psa.hustlex.reminders.Reminders;
+import com.psa.hustlex.models.auth;
 
 
-@Database(entities = {UsernamePassword.class, Reminders.class},version = 1)
+@Database(entities = {auth.class, Reminders.class},version = 1)
 @TypeConverters({DateTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

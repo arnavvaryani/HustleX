@@ -1,4 +1,4 @@
-package com.example.hustlex;
+package com.psa.hustlex;
 
 import org.junit.Test;
 

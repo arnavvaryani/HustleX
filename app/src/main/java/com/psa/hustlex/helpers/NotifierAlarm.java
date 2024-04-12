@@ -17,8 +17,8 @@ import androidx.core.app.TaskStackBuilder;
 import com.psa.hustlex.R;
 import com.psa.hustlex.database.AppDatabase;
 import com.psa.hustlex.database.RoomDAO;
-import com.psa.hustlex.reminders.Reminders;
-import com.psa.hustlex.screens.MainPage;
+import com.psa.hustlex.models.Reminders;
+import com.psa.hustlex.screens.ReminderScreen;
 
 import java.util.Date;
 
@@ -40,11 +40,11 @@ public class NotifierAlarm extends BroadcastReceiver {
 
         Uri ultrasound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
-        Intent intent1 = new Intent(context, MainPage.class);
+        Intent intent1 = new Intent(context, ReminderScreen.class);
         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
-        taskStackBuilder.addParentStack(MainPage.class);
+        taskStackBuilder.addParentStack(ReminderScreen.class);
         taskStackBuilder.addNextIntent(intent1);
 
         PendingIntent intent2 = taskStackBuilder.getPendingIntent(1,PendingIntent.FLAG_UPDATE_CURRENT);

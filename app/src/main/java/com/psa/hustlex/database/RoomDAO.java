@@ -6,25 +6,25 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.psa.hustlex.auth.UsernamePassword;
+import com.psa.hustlex.models.auth;
 
 @Dao
 public interface RoomDAO {
 
     @Insert
-    void Insert(UsernamePassword... usernamePasswords);
+    void Insert(auth... auths);
 
     @Update
-    void Update(UsernamePassword... usernamePasswords);
+    void Update(auth... auths);
 
     @Delete
-    void Delete(UsernamePassword usernamePassword);
+    void Delete(auth auth);
 
     @Query("Select * from login where username = :username")
-    UsernamePassword getUserWithUsername(String username);
+    auth getUserWithUsername(String username);
 
     @Query("Select * from login where isloggedIn = 1")
-    UsernamePassword getLoggedInUser();
+    auth getLoggedInUser();
 
 
 //    @Insert
