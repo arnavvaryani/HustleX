@@ -30,7 +30,6 @@ import com.psa.hustlex.datastructures.CustomPriorityQueue;
 import com.psa.hustlex.helpers.NotifierAlarm;
 import com.psa.hustlex.helpers.AdapterReminders;
 import com.psa.hustlex.models.BagOfLogs;
-import com.psa.hustlex.models.LogEntry;
 import com.psa.hustlex.models.Reminders;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -43,6 +42,7 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 public class ReminderScreen extends AppCompatActivity implements AdapterReminders.OnDeleteClickListener, AdapterReminders.OnUpdateClickListener {
+    private static final String TAG = "ReminderScreen";
     private FloatingActionButton add;
     private Dialog dialog;
     private RecyclerView recyclerView;
@@ -50,7 +50,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     private CustomPriorityQueue<Reminders> reminderQueue;
     private TextView empty;
     private SearchView searchView;
-    private Bag<LogEntry> items;
+    private Bag<String> items;
 
     BagOfLogs bagOfLogs;
 
@@ -59,7 +59,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        bagOfLogs = new BagOfLogs();
+        bagOfLogs = BagOfLogs.getInstance();
         reminderQueue = new CustomPriorityQueue<>(5); // Assuming a capacity of 10 for demonstration
         adapter = new AdapterReminders(reminderQueue, this, this);
         add = findViewById(R.id.floatingButton);
@@ -228,16 +228,16 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
 
     private void logReminderAddition(Reminders reminder) {
         items = bagOfLogs.getItems();
-        LogEntry logEntry = new LogEntry("Added reminder: " + reminder.getMessage());
+        String logEntry = "Added reminder: " + reminder.getMessage();
         items.add(logEntry);
         bagOfLogs.setItems(items);
-        System.out.println("Item added. New size: " + items.size());
+        Log.d(TAG, "" + items.size());
         refreshRecyclerView();
     }
 
     private void logReminderUpdation(Reminders reminder) {
         items = bagOfLogs.getItems();
-        LogEntry logEntry = new LogEntry("Updated reminder: " + reminder.getMessage());
+        String logEntry = "Updated reminder: " + reminder.getMessage();
         items.add(logEntry);
         bagOfLogs.setItems(items);
         refreshRecyclerView();
@@ -245,7 +245,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
 
    private void logReminderDeletion(Reminders reminder) {
        items = bagOfLogs.getItems();
-        LogEntry logEntry = new LogEntry("Deleted reminder: " + reminder.getMessage());
+        String logEntry = "Deleted reminder: " + reminder.getMessage();
         items.add(logEntry);
         bagOfLogs.setItems(items);
         refreshRecyclerView();
@@ -256,7 +256,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         try {
             return sdf.parse(dateString);
         } catch (ParseException e) {
-            Log.e("MainPage", "Failed to parse date: " + dateString, e);
+            Log.d("MainPage", "Failed to parse date: " + dateString, e);
             return null;
         }
     }

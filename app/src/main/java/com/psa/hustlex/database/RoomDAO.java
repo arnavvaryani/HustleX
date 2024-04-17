@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.psa.hustlex.models.Reminders;
 import com.psa.hustlex.models.auth;
 
 @Dao
@@ -26,23 +27,13 @@ public interface RoomDAO {
     @Query("Select * from login where isloggedIn = 1")
     auth getLoggedInUser();
 
+    @Insert
+    public void Insert(Reminders... reminders);
 
-//    @Insert
-//    public void Insert(Reminders... reminders);
-//
-//    @Update
-//    public void Update(Reminders... reminders);
-//
-//    @Delete
-//    public void Delete(Reminders reminders);
+    @Update
+    public void Update(Reminders... reminders);
 
-//    @Query("Select * from reminder order by remindDate")
-//    public List<Reminders> orderThetable();
-//
-//    @Query("Select * from reminder Limit 1")
-//    public Reminders getRecentEnteredData();
-//
-//    @Query("Select * from reminder")
-//    public List<Reminders> getAll();
+    @Delete
+    public void Delete(Reminders reminders);
 
 }

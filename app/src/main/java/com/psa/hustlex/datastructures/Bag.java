@@ -3,11 +3,11 @@ package com.psa.hustlex.datastructures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Bag<E> implements Iterable<E>, BagInterface<E> {
-    private Node<E> first; // beginning of bag
-    private int n; // number of elements in bag
 
-    // Helper linked list class
+public class Bag<E> implements Iterable<E>, BagInterface<E> {
+    private Node<E> first;
+    private int n;
+
     private static class Node<E> {
         private E item;
         private Node<E> next;
@@ -39,7 +39,6 @@ public class Bag<E> implements Iterable<E>, BagInterface<E> {
         return new LinkedIterator(first);
     }
 
-    // an iterator, doesn't implement remove() since it's optional
     private class LinkedIterator implements Iterator<E> {
         private Node<E> current;
 

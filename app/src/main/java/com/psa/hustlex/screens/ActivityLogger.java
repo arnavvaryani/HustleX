@@ -2,51 +2,36 @@ package com.psa.hustlex.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import com.psa.hustlex.R;
 import com.psa.hustlex.datastructures.Bag;
-import com.psa.hustlex.helpers.BagRecyclerAdapter;
 import com.psa.hustlex.models.BagOfLogs;
-import com.psa.hustlex.models.LogEntry;
 
 import java.util.ArrayList;
 
 public class ActivityLogger extends AppCompatActivity {
-    private Bag<LogEntry> items;
+    private Bag<String> items;
     private BagOfLogs bagOfLogs;
-    private ArrayList<LogEntry> itemList;
-    private BagRecyclerAdapter adapter;
-    private RecyclerView recyclerView;
+    private ArrayList<String> itemList;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
-        bagOfLogs = new BagOfLogs();
+        bagOfLogs = BagOfLogs.getInstance();
         items = bagOfLogs.getItems();
-
+        listView = findViewById(R.id.list_view);
         itemList = new ArrayList<>();
-        adapter = new BagRecyclerAdapter(itemList);
-        recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
 
-        updateItemList();
-    }
-
-    private void updateItemList() {
-        itemList.clear();
-        for (LogEntry entry : items) {
+        for (String entry : items) {
             itemList.add(entry);
         }
-        adapter.notifyDataSetChanged();
-    }
 
-
-    public void addLogEntry(LogEntry entry) {
-        bagOfLogs.getItems().add(entry);
-        updateItemList();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemList);
+        listView.setAdapter(arrayAdapter);
     }
 }
