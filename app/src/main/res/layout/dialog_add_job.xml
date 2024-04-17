@@ -1,0 +1,44 @@
+<!-- dialog_add_job.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextJobRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Job Role*"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextCompany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Company*"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location*"
+        android:inputType="text" />
+
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextDate"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Date (YYYY-MM-DD)"-->
+<!--        android:inputType="text" />-->
+
+    <Button
+        android:id="@+id/buttonAddJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add" />
+
+</LinearLayout>

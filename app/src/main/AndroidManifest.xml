@@ -15,16 +15,15 @@
         android:theme="@style/AppTheme">
 
         <!-- SplashScreen Activity -->
-        <activity android:name=".screens.ReminderScreen"
+        <activity android:name=".aakanksha_jobtracker.screens.JobTracker"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".screens.LoginScreen" android:exported="true"/>
-        <activity android:name=".screens.RegisterScreen" android:exported="true"/>
-        <receiver android:name=".helpers.NotifierAlarm" android:exported="true"/>
+        <activity android:name=".aakanksha_jobtracker.screens.AddJobActivity"/>
+        <activity android:name=".aakanksha_jobtracker.screens.EditJobActivity"/>
 
     </application>
 </manifest>
