@@ -42,7 +42,6 @@ public class LoginScreen extends AppCompatActivity {
             finish();
         }
 
-
         login.setOnClickListener(v -> loginUser(user.getText().toString().trim(),pass.getText().toString().trim()));
 
         register.setOnClickListener(v -> {
@@ -73,7 +72,6 @@ public class LoginScreen extends AppCompatActivity {
             else{
                 Toast.makeText(LoginScreen.this,"Invalid Password",Toast.LENGTH_SHORT).show();
             }
-
 
     }
 }

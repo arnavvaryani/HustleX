@@ -231,9 +231,12 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         LogEntry logEntry = new LogEntry("Added reminder: " + reminder.getMessage());
         items.add(logEntry);
         bagOfLogs.setItems(items);
+        System.out.println("Item added. New size: " + items.size());
+        refreshRecyclerView();
     }
 
     private void logReminderUpdation(Reminders reminder) {
+        items = bagOfLogs.getItems();
         LogEntry logEntry = new LogEntry("Updated reminder: " + reminder.getMessage());
         items.add(logEntry);
         bagOfLogs.setItems(items);
@@ -241,6 +244,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     }
 
    private void logReminderDeletion(Reminders reminder) {
+       items = bagOfLogs.getItems();
         LogEntry logEntry = new LogEntry("Deleted reminder: " + reminder.getMessage());
         items.add(logEntry);
         bagOfLogs.setItems(items);
