@@ -34,6 +34,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -69,7 +71,11 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         recyclerView.setAdapter(adapter);
         add.setOnClickListener(v -> addReminder());
 
-        Button gotoActivityLoggerButton = findViewById(R.id.goto_activity_logger_button);
+//        Reminders reminder1=new Reminders();
+//        reminder1.setRemindDate(parseDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))) );
+//        reminder1.setMessage("PSA Homework");
+
+        FloatingActionButton gotoActivityLoggerButton = findViewById(R.id.goto_activity_logger_button);
 
         gotoActivityLoggerButton.setOnClickListener(new View.OnClickListener() {
             @Override

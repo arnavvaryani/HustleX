@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.psa.hustlex.R;
 import com.psa.hustlex.aakanksha_jobtracker.models.Job;
 import com.psa.hustlex.aakanksha_jobtracker.tree_elements.JobStatusTree;
@@ -53,7 +54,7 @@ public class JobTracker extends AppCompatActivity {
         displayJobList("Offer", R.id.listOfferJobs);
 
         // Set onClickListener for Add buttons
-        Button buttonAddJob = findViewById(R.id.buttonAddJob);
+        FloatingActionButton buttonAddJob = findViewById(R.id.buttonAddJob);
         buttonAddJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

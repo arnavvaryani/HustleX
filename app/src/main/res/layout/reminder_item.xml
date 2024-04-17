@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="#80C6FF">
+            android:background="@drawable/border_card_layout">
 
             <TextView
                 android:id="@+id/textView1"
@@ -43,19 +43,29 @@
                 android:gravity="center"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/buttonDelete"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Delete" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/buttonUpdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Update"
-                android:layout_gravity="center_vertical" />
+                <Button
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete" />
+
+                <Button
+                    android:id="@+id/buttonUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Update" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

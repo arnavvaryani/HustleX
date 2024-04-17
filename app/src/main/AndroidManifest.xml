@@ -16,7 +16,7 @@
 
         <!-- SplashScreen Activity -->
         <activity android:name=".arnav.screens.ReminderScreen"
-            android:exported="true">
+            android:exported="true" android:label="Reminder">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -24,18 +24,18 @@
         </activity>
         <activity android:name=".arnav.screens.LoginScreen" android:exported="true"/>
         <activity android:name=".arnav.screens.RegisterScreen" android:exported="true"/>
-        <activity android:name=".arnav.screens.ActivityLogger" android:exported="true"/>
+        <activity android:name=".arnav.screens.ActivityLogger" android:exported="true" android:label="Activity Logger"/>
         <receiver android:name=".arnav.helpers.NotifierAlarm" android:exported="true"/>
         <!--Aakanksha -->
         <activity android:name=".aakanksha_jobtracker.screens.JobTracker"
-            android:exported="true">
+            android:exported="true" android:label="Job Tracker">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN"/>-->
 <!--                <category android:name="android.intent.category.LAUNCHER"/>-->
 <!--            </intent-filter>-->
         </activity>
-        <activity android:name=".aakanksha_jobtracker.screens.AddJobActivity"/>
-        <activity android:name=".aakanksha_jobtracker.screens.EditJobActivity"/>
+        <activity android:name=".aakanksha_jobtracker.screens.AddJobActivity" android:label="Add Job"/>
+        <activity android:name=".aakanksha_jobtracker.screens.EditJobActivity" android:label="Edit Job"/>
 
     </application>
 </manifest>

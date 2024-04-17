@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Job Tracker</string>
-    <string name="reminder_app">HustleX</string>
+    <string name="app_name">HustleX</string>
     <string name="edit_job">Edit Job</string>
     <string name="delete_job">Delete Job</string>
     <string name="add_job">Add Job</string>

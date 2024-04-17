@@ -5,9 +5,9 @@
     android:layout_width="300dp"
     android:layout_height="350dp"
     android:orientation="vertical"
-    android:background="#CCCCFF"
     android:layout_gravity="center"
-    android:padding="25dp">
+    android:padding="25dp"
+    android:background="@drawable/border_card_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="Date And Time"
+            android:background="@drawable/border_layout"
+            android:hint="DATE / TIME"
             android:layout_gravity="center"/>
         <Button
             android:id="@+id/selectDate"
@@ -39,7 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:hint="Message"
+        android:padding="10dp"
+        android:hint="MESSAGE"
+        android:background="@drawable/border_layout"
         android:gravity="center"/>
 
     <Button
