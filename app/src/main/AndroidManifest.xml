@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- SplashScreen Activity -->
+        <activity android:name=".arnav.screens.ReminderScreen"
+            android:exported="true" android:label="Reminder">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".arnav.screens.LoginScreen" android:exported="true"/>
+        <activity android:name=".arnav.screens.RegisterScreen" android:exported="true"/>
+        <activity android:name=".arnav.screens.ActivityLogger" android:exported="true" android:label="Activity Logger"/>
+        <receiver android:name=".arnav.helpers.NotifierAlarm" android:exported="true"/>
+        <!--Aakanksha -->
+        <activity android:name=".aakanksha.screens.JobTracker"
+            android:exported="true" android:label="Job Tracker">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".aakanksha.screens.AddJobActivity" android:label="Add Job"/>
+        <activity android:name=".aakanksha.screens.EditJobActivity" android:label="Edit Job"/>
+        <activity
+            android:name=".chirag.DailyTaskTracker"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+    </application>
+</manifest>

@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="job_statuses">
+        <item>Saved</item>
+        <item>Applied</item>
+        <item>Screening</item>
+        <item>Rejected</item>
+        <item>Offer</item>
+    </string-array>
+</resources>
