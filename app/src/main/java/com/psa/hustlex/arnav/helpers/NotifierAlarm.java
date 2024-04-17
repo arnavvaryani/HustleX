@@ -1,4 +1,4 @@
-package com.psa.hustlex.helpers;
+package com.psa.hustlex.arnav.helpers;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -15,10 +15,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.database.AppDatabase;
-import com.psa.hustlex.database.RoomDAO;
-import com.psa.hustlex.models.Reminders;
-import com.psa.hustlex.screens.ReminderScreen;
+import com.psa.hustlex.arnav.models.Reminders;
+import com.psa.hustlex.arnav.database.AppDatabase;
+import com.psa.hustlex.arnav.database.RoomDAO;
+import com.psa.hustlex.arnav.screens.ReminderScreen;
 
 import java.util.Date;
 

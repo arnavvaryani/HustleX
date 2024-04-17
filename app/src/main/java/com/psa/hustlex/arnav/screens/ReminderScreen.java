@@ -1,4 +1,4 @@
-package com.psa.hustlex.screens;
+package com.psa.hustlex.arnav.screens;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -20,17 +20,16 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.datastructures.Bag;
-import com.psa.hustlex.datastructures.CustomPriorityQueue;
-import com.psa.hustlex.helpers.NotifierAlarm;
-import com.psa.hustlex.helpers.AdapterReminders;
-import com.psa.hustlex.models.BagOfLogs;
-import com.psa.hustlex.models.Reminders;
+import com.psa.hustlex.arnav.datastructures.Bag;
+import com.psa.hustlex.arnav.helpers.AdapterReminders;
+import com.psa.hustlex.arnav.helpers.NotifierAlarm;
+import com.psa.hustlex.arnav.models.Reminders;
+import com.psa.hustlex.arnav.datastructures.PriorityQueue;
+import com.psa.hustlex.arnav.models.BagOfLogs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
@@ -47,9 +46,9 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     private Dialog dialog;
     private RecyclerView recyclerView;
     private AdapterReminders adapter;
-    private CustomPriorityQueue<Reminders> reminderQueue;
+    private PriorityQueue<Reminders> reminderQueue;
     private TextView empty;
-    private SearchView searchView;
+
     private Bag<String> items;
 
     BagOfLogs bagOfLogs;
@@ -60,16 +59,14 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         bagOfLogs = BagOfLogs.getInstance();
-        reminderQueue = new CustomPriorityQueue<>(5); // Assuming a capacity of 10 for demonstration
+        reminderQueue = new PriorityQueue<>(5); // Assuming a capacity of 10 for demonstration
         adapter = new AdapterReminders(reminderQueue, this, this);
         add = findViewById(R.id.floatingButton);
-        searchView = findViewById(R.id.searchView);
         empty = findViewById(R.id.empty);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        configureSearchView();
         add.setOnClickListener(v -> addReminder());
 
         Button gotoActivityLoggerButton = findViewById(R.id.goto_activity_logger_button);
@@ -112,20 +109,6 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         Toast.makeText(this, "Reminder Set Successfully", Toast.LENGTH_SHORT).show();
     }
 
-    private void configureSearchView() {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                return true;
-            }
-        });
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 

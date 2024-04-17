@@ -1,4 +1,4 @@
-package com.psa.hustlex.helpers;
+package com.psa.hustlex.arnav.helpers;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.models.Reminders;
-import com.psa.hustlex.datastructures.CustomPriorityQueue;
+import com.psa.hustlex.arnav.models.Reminders;
+import com.psa.hustlex.arnav.datastructures.PriorityQueue;
 
 public class AdapterReminders extends RecyclerView.Adapter<AdapterReminders.MyViewHolder> {
 
-    private final CustomPriorityQueue<Reminders> reminderQueue;
+    private final PriorityQueue<Reminders> reminderQueue;
     private OnDeleteClickListener onDeleteClickListener;
     private OnUpdateClickListener onUpdateClickListener;
 
-    // Interface for the delete button click listener
+
     public interface OnDeleteClickListener {
         void onDeleteClick(int position);
     }
@@ -27,9 +27,8 @@ public class AdapterReminders extends RecyclerView.Adapter<AdapterReminders.MyVi
     public interface OnUpdateClickListener {
         void onUpdateClick(int position);
     }
-
-    // Constructor to set the reminder queue and the delete button click listener
-    public AdapterReminders(CustomPriorityQueue<Reminders> reminderQueue, OnDeleteClickListener onDeleteClickListener, OnUpdateClickListener onUpdateClickListener) {
+    
+    public AdapterReminders(PriorityQueue<Reminders> reminderQueue, OnDeleteClickListener onDeleteClickListener, OnUpdateClickListener onUpdateClickListener) {
         this.reminderQueue = reminderQueue;
         this.onDeleteClickListener = onDeleteClickListener;
         this.onUpdateClickListener = onUpdateClickListener;

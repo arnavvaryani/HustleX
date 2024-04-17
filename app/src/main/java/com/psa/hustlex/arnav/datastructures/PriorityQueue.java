@@ -1,14 +1,14 @@
-package com.psa.hustlex.datastructures;
+package com.psa.hustlex.arnav.datastructures;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class CustomPriorityQueue<E extends Comparable<E>> implements PriorityQueue<E> {
+public class PriorityQueue<E extends Comparable<E>> implements PriorityQueueInterface<E> {
     private Object[] heap;
     private int size;
     private int capacity;
 
-    public CustomPriorityQueue(int initialCapacity) {
+    public PriorityQueue(int initialCapacity) {
         if (initialCapacity <= 0) {
             throw new IllegalArgumentException("Initial capacity must be greater than zero.");
         }

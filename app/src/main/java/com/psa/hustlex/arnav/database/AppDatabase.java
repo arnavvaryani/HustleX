@@ -1,4 +1,4 @@
-package com.psa.hustlex.database;
+package com.psa.hustlex.arnav.database;
 
 import android.content.Context;
 
@@ -7,9 +7,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.psa.hustlex.helpers.DateTypeConverter;
-import com.psa.hustlex.models.Reminders;
-import com.psa.hustlex.models.auth;
+import com.psa.hustlex.arnav.helpers.DateTypeConverter;
+import com.psa.hustlex.arnav.models.Reminders;
+import com.psa.hustlex.arnav.models.auth;
 
 
 @Database(entities = {auth.class, Reminders.class},version = 1)

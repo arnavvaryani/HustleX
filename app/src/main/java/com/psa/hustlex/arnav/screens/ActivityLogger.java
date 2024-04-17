@@ -1,4 +1,4 @@
-package com.psa.hustlex.screens;
+package com.psa.hustlex.arnav.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.datastructures.Bag;
-import com.psa.hustlex.models.BagOfLogs;
+import com.psa.hustlex.arnav.datastructures.Bag;
+import com.psa.hustlex.arnav.models.BagOfLogs;
 
 import java.util.ArrayList;
 

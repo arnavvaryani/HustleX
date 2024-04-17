@@ -1,8 +1,8 @@
-package com.psa.hustlex.datastructures;
+package com.psa.hustlex.arnav.datastructures;
 
 import java.util.Iterator;
 
-public interface PriorityQueue<E extends Comparable<E>> {
+public interface PriorityQueueInterface<E extends Comparable<E>> {
     Iterator<E> iterator();
 
     void enqueue(E item);

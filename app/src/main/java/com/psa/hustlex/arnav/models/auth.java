@@ -1,4 +1,4 @@
-package com.psa.hustlex.models;
+package com.psa.hustlex.arnav.models;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

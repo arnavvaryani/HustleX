@@ -1,6 +1,6 @@
-package com.psa.hustlex.models;
+package com.psa.hustlex.arnav.models;
 
-import com.psa.hustlex.datastructures.Bag;
+import com.psa.hustlex.arnav.datastructures.Bag;
 
 public class BagOfLogs {
     private static BagOfLogs instance;

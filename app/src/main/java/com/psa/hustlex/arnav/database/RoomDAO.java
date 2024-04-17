@@ -1,4 +1,4 @@
-package com.psa.hustlex.database;
+package com.psa.hustlex.arnav.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,8 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.psa.hustlex.models.Reminders;
-import com.psa.hustlex.models.auth;
+import com.psa.hustlex.arnav.models.Reminders;
+import com.psa.hustlex.arnav.models.auth;
 
 @Dao
 public interface RoomDAO {

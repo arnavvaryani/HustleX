@@ -1,4 +1,4 @@
-package com.psa.hustlex.helpers;
+package com.psa.hustlex.arnav.helpers;
 
 import androidx.room.TypeConverter;
 

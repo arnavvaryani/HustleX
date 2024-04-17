@@ -1,4 +1,4 @@
-package com.psa.hustlex.screens;
+package com.psa.hustlex.arnav.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.psa.hustlex.R;
-import com.psa.hustlex.database.AppDatabase;
-import com.psa.hustlex.database.RoomDAO;
-import com.psa.hustlex.models.auth;
+import com.psa.hustlex.arnav.models.auth;
+import com.psa.hustlex.arnav.database.AppDatabase;
+import com.psa.hustlex.arnav.database.RoomDAO;
 
 
 public class RegisterScreen extends AppCompatActivity {
