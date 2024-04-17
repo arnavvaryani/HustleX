@@ -25,7 +25,7 @@ public class LoginScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_logger);
 
         user = findViewById(R.id.editText);
         pass = findViewById(R.id.editText2);
