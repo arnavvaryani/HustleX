@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".aakanksha_jobtracker.screens.JobTracker">
+
+    <!-- Title "Job Tracker" -->
+    <TextView
+        android:id="@+id/textJobTrackerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Tracker"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+    <Button
+        android:id="@+id/buttonAddJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Job"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/border_card_layout"/>
+    <!-- Saved List -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSaved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutSaved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_card_layout">
+
+            <TextView
+                android:id="@+id/textSavedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Count TextView -->
+            <!-- "+" Button -->
+            <!-- Saved Job List -->
+
+            <TextView
+                android:id="@+id/textSavedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:text="Count: "
+                android:textStyle="italic" />
+
+
+
+
+            <LinearLayout
+                android:id="@+id/listSavedJobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textSavedTitle"
+                android:orientation="vertical"
+                android:background="@drawable/border_layout"
+                android:paddingTop="8dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Applied List -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardApplied"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutApplied"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_card_layout">
+
+            <TextView
+                android:id="@+id/textAppliedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Applied"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Count TextView -->
+            <TextView
+                android:id="@+id/textAppliedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Count: "
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp" />
+
+            <!-- Applied Job List -->
+            <LinearLayout
+                android:id="@+id/listAppliedJobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textAppliedTitle"
+                android:orientation="vertical"
+                android:background="@drawable/border_layout"
+                android:paddingTop="8dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Screening List -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardScreening"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutScreening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_card_layout">
+
+            <TextView
+                android:id="@+id/textScreeningTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Screening"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Count TextView -->
+            <TextView
+                android:id="@+id/textScreeningCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Count: "
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp" />
+
+
+            <!-- Screening Job List -->
+            <LinearLayout
+                android:id="@+id/listScreeningJobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textScreeningTitle"
+                android:orientation="vertical"
+                android:background="@drawable/border_layout"
+                android:paddingTop="8dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Rejected List -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardRejected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutRejected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_card_layout">
+
+            <TextView
+                android:id="@+id/textRejectedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rejected"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Count TextView -->
+            <TextView
+                android:id="@+id/textRejectedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Count: "
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp" />
+
+
+
+            <!-- Rejected Job List -->
+            <LinearLayout
+                android:id="@+id/listRejectedJobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRejectedTitle"
+                android:orientation="vertical"
+                android:background="@drawable/border_layout"
+                android:paddingTop="8dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Offer List -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardOffer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutOffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_card_layout">
+
+            <TextView
+                android:id="@+id/textOfferTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offer"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Count TextView -->
+            <TextView
+                android:id="@+id/textOfferCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Count: "
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp" />
+
+
+            <!-- Offer Job List -->
+            <LinearLayout
+                android:id="@+id/listOfferJobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textOfferTitle"
+                android:orientation="vertical"
+                android:background="@drawable/border_layout"
+                android:paddingTop="8dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
