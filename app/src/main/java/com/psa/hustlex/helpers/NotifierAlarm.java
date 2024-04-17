@@ -34,7 +34,6 @@ public class NotifierAlarm extends BroadcastReceiver {
         Reminders reminder = new Reminders();
         reminder.setMessage(intent.getStringExtra("Message"));
         reminder.setRemindDate(new Date(intent.getStringExtra("RemindDate")));
-        reminder.setId(intent.getIntExtra("id",0));
       //  roomDAO.Delete(reminder);
         AppDatabase.destroyInstance();
 

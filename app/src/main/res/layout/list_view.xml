@@ -27,4 +27,10 @@
         android:gravity="center_vertical"
         android:textColor="@android:color/darker_gray" />
 
+    <!-- Assuming your layout file is under res/layout/list_view.xml -->
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>

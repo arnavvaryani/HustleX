@@ -49,6 +49,13 @@
                 android:layout_gravity="center_vertical"
                 android:text="Delete" />
 
+            <Button
+                android:id="@+id/buttonUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:layout_gravity="center_vertical" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

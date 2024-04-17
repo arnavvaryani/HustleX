@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class LogEntry implements Serializable {
     private final String message;
 
-
     public LogEntry(String message) {
         this.message = message;
 
@@ -14,8 +13,6 @@ public class LogEntry implements Serializable {
     public String getMessage() {
         return message;
     }
-
-
 
     @Override
     public String toString() {
