@@ -10,6 +10,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.psa.hustlex.aakanksha_jobtracker.screens.JobTracker;
+import com.psa.hustlex.arnav.screens.ReminderScreen;
 import com.psa.hustlex.chirag.DailyTaskTracker;
 
 import java.util.Objects;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        Set View as HomePage.
         setContentView(R.layout.homepage);
+
+
 
 //        LinkSequence<Integer> ll = new LinkSequence<>();
 //        ll.add(1);
@@ -55,6 +59,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Create Intent to go to Daily Task Tracker Screen.
                 Intent intent = new Intent(MainActivity.this, DailyTaskTracker.class);
+                startActivity(intent);
+            }
+        });
+
+        gotoRemindersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Create Intent to go to Daily Task Tracker Screen.
+                Intent intent = new Intent(MainActivity.this, ReminderScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        gotoJobTrackerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Create Intent to go to Daily Task Tracker Screen.
+                Intent intent = new Intent(MainActivity.this, JobTracker.class);
                 startActivity(intent);
             }
         });
