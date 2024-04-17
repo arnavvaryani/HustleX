@@ -29,6 +29,7 @@ import com.psa.hustlex.datastructures.Bag;
 import com.psa.hustlex.datastructures.CustomPriorityQueue;
 import com.psa.hustlex.helpers.NotifierAlarm;
 import com.psa.hustlex.helpers.AdapterReminders;
+import com.psa.hustlex.models.BagOfEnteries;
 import com.psa.hustlex.models.LogEntry;
 import com.psa.hustlex.models.Reminders;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,15 +52,16 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     private SearchView searchView;
     private Bag<LogEntry> items;
 
+    BagOfEnteries bagOfEnteries;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-
+        bagOfEnteries = new BagOfEnteries();
         reminderQueue = new CustomPriorityQueue<>(5); // Assuming a capacity of 10 for demonstration
         adapter = new AdapterReminders(reminderQueue, (AdapterReminders.OnDeleteClickListener) this);
-        items = new Bag<LogEntry>();
         add = findViewById(R.id.floatingButton);
         searchView = findViewById(R.id.searchView);
         empty = findViewById(R.id.empty);
@@ -75,8 +77,8 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         gotoActivityLoggerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
-                startActivity(new Intent(ReminderScreen.this, ActivityLogger.class));
+                Intent intent = new Intent(ReminderScreen.this, ActivityLogger.class);
+                startActivity(intent);
             }
         });
     }
@@ -126,6 +128,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
     private void addReminder() {
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.insertreminder_popup);
@@ -174,11 +177,82 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         });
     }
 
+    //@RequiresApi(api = Build.VERSION_CODES.O)
+
+//    private void updateReminder() {
+//        dialog = new Dialog(this);
+//        dialog.setContentView(R.layout.updatereminder_popup);
+//        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.show();
+//
+//        TextView dateText = dialog.findViewById(R.id.date);
+//        Button selectDate = dialog.findViewById(R.id.selectDate);
+//        Button addButton = dialog.findViewById(R.id.addButton);
+//        EditText messageEditText = dialog.findViewById(R.id.message);
+//
+//        selectDate.setOnClickListener(v -> {
+//            Calendar calendar = Calendar.getInstance();
+//            DatePickerDialog datePickerDialog = new DatePickerDialog(ReminderScreen.this, (view, year, month, dayOfMonth) -> {
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(ReminderScreen.this, (view1, hourOfDay, minute) -> {
+//                    Calendar newDate = Calendar.getInstance();
+//                    newDate.set(year, month, dayOfMonth, hourOfDay, minute, 0);
+//                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+//                    String formattedDate = sdf.format(newDate.getTime());
+//                    dateText.setText(formattedDate);
+//                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+//                timePickerDialog.show();
+//            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+//            datePickerDialog.show();
+//        });
+//
+//        addButton.setOnClickListener(v -> {
+//            try {
+//                String dateString = dateText.getText().toString().trim();
+//                Date remindDate = parseDate(dateString);
+//                if (remindDate == null || remindDate.before(new Date())) {
+//                    Toast.makeText(ReminderScreen.this, "Cannot set reminder in the past", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                Reminders reminder = new Reminders();
+//                reminder.setMessage(messageEditText.getText().toString().trim());
+//                reminder.setRemindDate(remindDate);
+//                reminderQueue.enqueueAt(position, reminder);
+//                logReminderUpdation(reminder);
+//                dialog.dismiss();
+//                refreshRecyclerView();
+//            } catch (Exception e) {
+//                Log.e("AddReminder", "Error adding reminder", e);
+//                Toast.makeText(ReminderScreen.this, "Failed to add reminder: " + e.getMessage(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+//    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void logReminderAddition(Reminders reminder) {
-        LogEntry logEntry = null;
-        logEntry = new LogEntry("Added reminder: " + reminder.getMessage());
+        items = bagOfEnteries.getItems();
+        LogEntry logEntry = new LogEntry("Added reminder: " + reminder.getMessage());
         items.add(logEntry);
+        bagOfEnteries.setItems(items);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void logReminderUpdation(Reminders reminder) {
+
+        LogEntry logEntry = new LogEntry("Updated reminder: " + reminder.getMessage());
+        items.add(logEntry);
+        bagOfEnteries.setItems(items);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void logReminderDeletion(Reminders reminder) {
+
+        LogEntry logEntry = new LogEntry("Deleted reminder: " + reminder.getMessage());
+        items.add(logEntry);
+        bagOfEnteries.setItems(items);
+        adapter.notifyDataSetChanged();
+
     }
 
     private Date parseDate(String dateString) {

@@ -12,21 +12,25 @@ import android.widget.Toast;
 
 import com.psa.hustlex.R;
 import com.psa.hustlex.datastructures.Bag;
+import com.psa.hustlex.models.BagOfEnteries;
 import com.psa.hustlex.models.LogEntry;
 
 import java.util.Iterator;
+import android.util.Log;
 
 public class ActivityLogger extends AppCompatActivity {
-    private Bag<LogEntry> items;
+    Bag<LogEntry> items;
+    BagOfEnteries bagOfEnteries;
 
-    private ActivityLogger(Bag items) {
-        items = items;
-    }
+    private static final String TAG = "ActivityLogger";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bagOfEnteries = new BagOfEnteries();
         setContentView(R.layout.list_view);
+        items = bagOfEnteries.getItems();
+        Log.d(TAG, items.toString());
 
         // Setup ListView and Adapter
         ListView listView = findViewById(R.id.list_view);
@@ -48,7 +52,7 @@ public class ActivityLogger extends AppCompatActivity {
                     iterator.next();
                 }
                 LogEntry item = iterator.next();
-                Toast.makeText(getApplicationContext(), item.getMessage() + " - " + item.getTimestamp(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), item.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

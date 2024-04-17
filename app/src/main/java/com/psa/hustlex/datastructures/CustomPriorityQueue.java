@@ -89,7 +89,31 @@ public class CustomPriorityQueue<E extends Comparable<E>> implements PriorityQue
             heap = Arrays.copyOf(heap, capacity);
         }
     }
+    public void enqueueAt(int index, E newItem) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        if (newItem == null) {
+            throw new NullPointerException("Cannot enqueue a null item.");
+        }
 
+        heap[index] = newItem;
+
+        reheap(index);
+    }
+
+    private void reheap(int index) {
+        E item = (E) heap[index];
+        // Move up in the heap if necessary
+        while (index > 0 && ((E) heap[parent(index)]).compareTo(item) > 0) {
+            swap(index, parent(index));
+            index = parent(index);
+        }
+        // If no move up was necessary, heapify down
+        if (heap[index] == item) {
+            heapify(index);
+        }
+    }
     @Override
     public E peek() {
         if (size == 0) {
