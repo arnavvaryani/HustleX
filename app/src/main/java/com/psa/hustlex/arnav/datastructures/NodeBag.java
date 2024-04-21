@@ -3,7 +3,6 @@ package com.psa.hustlex.arnav.datastructures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 public class NodeBag<E> implements Iterable<E>, NodeBagInterface<E> {
     private Node<E> first;
     private int n;

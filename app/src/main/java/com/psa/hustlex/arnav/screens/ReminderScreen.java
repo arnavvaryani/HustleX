@@ -19,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -180,6 +179,8 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
     }
 
     private void updateReminder(int position) {
+        Reminders reminderToUpdate = reminderQueue.get(position);
+
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.updatereminder_popup);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -190,13 +191,16 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         Button addButton = dialog.findViewById(R.id.addButton);
         EditText messageEditText = dialog.findViewById(R.id.message);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        dateText.setText(sdf.format(reminderToUpdate.getRemindDate()));
+        messageEditText.setText(reminderToUpdate.getMessage());
+
         selectDate.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             DatePickerDialog datePickerDialog = new DatePickerDialog(ReminderScreen.this, (view, year, month, dayOfMonth) -> {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(ReminderScreen.this, (view1, hourOfDay, minute) -> {
                     Calendar newDate = Calendar.getInstance();
                     newDate.set(year, month, dayOfMonth, hourOfDay, minute, 0);
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                     String formattedDate = sdf.format(newDate.getTime());
                     dateText.setText(formattedDate);
                 }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);

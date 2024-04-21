@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="38dp"
         android:layout_marginEnd="11dp"
         android:fontFamily="@font/cormorant_light"
         android:text="HustleX"
@@ -18,93 +17,25 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/headingSideR"
         app:layout_constraintStart_toEndOf="@+id/headingSideL"
-        app:layout_constraintTop_toBottomOf="@+id/navBar" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/navBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:cardBackgroundColor="#394E78"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/bottomBar"
-        android:layout_width="381dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="8dp"
-        app:cardBackgroundColor="#394E78"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
-            android:layout_width="381dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="680dp"
-            android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="#394E78"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="381dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="680dp"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="#394E78"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
-            android:layout_width="381dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="680dp"
-            android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="#394E78"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+        tools:layout_editor_absoluteY="88dp" />
 
     <ImageView
         android:id="@+id/headingSideL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="33dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navBar"
-        app:srcCompat="@drawable/logo_side" />
+        app:srcCompat="@drawable/logo_side"
+        tools:layout_editor_absoluteY="83dp" />
 
     <ImageView
         android:id="@+id/headingSideR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
         android:layout_marginEnd="120dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navBar"
-        app:srcCompat="@drawable/logo_side" />
+        app:srcCompat="@drawable/logo_side"
+        tools:layout_editor_absoluteY="83dp" />
 
     <ImageView
         android:id="@+id/imageView4"

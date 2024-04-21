@@ -1,10 +1,9 @@
 package com.psa.hustlex.arnav.models;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "login")
+
 public class auth {
 @NonNull
     @PrimaryKey

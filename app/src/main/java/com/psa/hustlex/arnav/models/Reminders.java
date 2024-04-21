@@ -1,13 +1,10 @@
 package com.psa.hustlex.arnav.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.util.Date;
 
-@Entity
+
 public class Reminders implements Comparable<Reminders> {
-    @PrimaryKey(autoGenerate = true)
+
     private int id;
     private String message;
     private Date remindDate;
