@@ -2,7 +2,7 @@ package com.psa.hustlex.arnav.models;
 
 import java.util.Date;
 
-
+// custom model which holds data about reminders as well as getters/setters.
 public class Reminders implements Comparable<Reminders> {
 
     private int id;

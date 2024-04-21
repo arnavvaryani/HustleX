@@ -3,6 +3,10 @@ package com.psa.hustlex.aakanksha.data_structures;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @param <K> the type of keys maintained by this map
+ * @param <V> the type of mapped values
+ */
 public class NodeMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private static final float LOAD_FACTOR = 0.75f;
@@ -10,12 +14,23 @@ public class NodeMap<K, V> {
     private Entry<K, V>[] entries;
     private int size;
 
+    /**
+     * Constructs an empty NodeMap with the default initial capacity (16) and default load factor (0.75).
+     */
     @SuppressWarnings("unchecked")
     public NodeMap() {
         entries = new Entry[DEFAULT_CAPACITY];
         size = 0;
     }
 
+    /**
+     * Associates the specified value with the specified key in this map.
+     * If the map previously contained a mapping for the key, the old value is replaced.
+     *
+     * @param key   key with which the specified value is to be associated
+     * @param value value to be associated with the specified key
+     * @throws IllegalArgumentException if the key is null
+     */
     public void put(K key, V value) {
         if (key == null) {
             throw new IllegalArgumentException("Key cannot be null");
@@ -46,6 +61,12 @@ public class NodeMap<K, V> {
         }
     }
 
+    /**
+     * Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+     *
+     * @param key the key whose associated value is to be returned
+     * @return the value to which the specified key is mapped, or null if this map contains no mapping for the key
+     */
     public V get(K key) {
         int index = getIndex(key);
         Entry<K, V> entry = entries[index];
@@ -58,6 +79,12 @@ public class NodeMap<K, V> {
         return null;
     }
 
+    /**
+     * Returns true if this map contains a mapping for the specified key.
+     *
+     * @param key key whose presence in this map is to be tested
+     * @return true if this map contains a mapping for the specified key
+     */
     public boolean containsKey(K key) {
         int index = getIndex(key);
         Entry<K, V> entry = entries[index];
@@ -70,15 +97,30 @@ public class NodeMap<K, V> {
         return false;
     }
 
+    /**
+     * Returns the number of key-value mappings in this map.
+     *
+     * @return the number of key-value mappings in this map
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Computes the hash table bucket index for a given key.
+     *
+     * @param key the key to calculate the index for
+     * @return the index of the bucket
+     */
     private int getIndex(K key) {
         return Math.abs(key.hashCode()) % entries.length;
     }
 
-
+    /**
+     * Returns a Set view of the mappings contained in this map.
+     *
+     * @return a set view of the mappings contained in this map
+     */
     public Set<Entry<K, V>> entrySet() {
         Set<Entry<K, V>> entrySet = new HashSet<>();
         for (Entry<K, V> entry : entries) {
@@ -90,6 +132,9 @@ public class NodeMap<K, V> {
         return entrySet;
     }
 
+    /**
+     * Doubles the capacity of the hash table and rehashes all existing entries.
+     */
     @SuppressWarnings("unchecked")
     private void resize() {
         Entry<K, V>[] newEntries = new Entry[entries.length * 2];
@@ -105,6 +150,10 @@ public class NodeMap<K, V> {
         entries = newEntries;
     }
 
+    /**
+     * Static nested class used to represent a map entry.
+     * Each entry in a map corresponds to a key-value pair and may link to another entry in the same bucket.
+     */
     public static class Entry<K, V> {
         final K key;
         V value;

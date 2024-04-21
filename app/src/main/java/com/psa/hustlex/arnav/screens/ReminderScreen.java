@@ -40,6 +40,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
+//reminder screen ui
 public class ReminderScreen extends AppCompatActivity implements AdapterReminders.OnDeleteClickListener, AdapterReminders.OnUpdateClickListener {
     private static final String TAG = "ReminderScreen";
     private FloatingActionButton add;
@@ -80,7 +81,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
             }
         });
     }
-
+//adds reminder
     private void addDummyReminder() {
         Reminders reminders = new Reminders();
         reminders.setMessage("Do homework");
@@ -98,6 +99,8 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
 
         System.out.println("Reminder set for: " + formattedDate); // Just for demonstration
     }
+
+    //schedules notifications
     private void checkAndScheduleAlarm(Reminders reminder) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (getSystemService(AlarmManager.class).canScheduleExactAlarms()) {
@@ -111,6 +114,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         }
     }
 
+    //schedule alarm to show in ui
     private void scheduleAlarm(Reminders reminder) {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+5:30"));
         calendar.setTime(reminder.getRemindDate());
@@ -128,7 +132,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         Toast.makeText(this, "Reminder Set Successfully", Toast.LENGTH_SHORT).show();
     }
 
-
+//adds reminder
     private void addReminder() {
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.insertreminder_popup);
@@ -178,6 +182,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         });
     }
 
+    //updates reminder
     private void updateReminder(int position) {
         Reminders reminderToUpdate = reminderQueue.get(position);
 
@@ -232,7 +237,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         });
     }
 
-
+//logs adding new reminder in bag
     private void logReminderAddition(@NonNull Reminders reminder) {
         items = bagOfLogs.getItems();
         String logEntry = "Added reminder: " + reminder.getMessage();
@@ -242,6 +247,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         refreshRecyclerView();
     }
 
+    //logs updating existing reminder in bag
     private void logReminderUpdation(@NonNull Reminders reminder) {
         items = bagOfLogs.getItems();
         String logEntry = "Updated reminder: " + reminder.getMessage();
@@ -250,6 +256,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         refreshRecyclerView();
     }
 
+    //logs deleting reminder in bag
    private void logReminderDeletion(@NonNull Reminders reminder) {
        items = bagOfLogs.getItems();
         String logEntry = "Deleted reminder: " + reminder.getMessage();
@@ -258,6 +265,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         refreshRecyclerView();
     }
 
+    //used to parse date from calendar
     private Date parseDate(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         try {
@@ -268,6 +276,7 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         }
     }
 
+    //delete click button callback handler
     @Override
     public void onDeleteClick(int position) {
         Reminders reminders = reminderQueue.get(position);
@@ -276,13 +285,14 @@ public class ReminderScreen extends AppCompatActivity implements AdapterReminder
         refreshRecyclerView();
     }
 
+    //refresh ui
     private void refreshRecyclerView() {
         boolean hasReminders = !reminderQueue.isEmpty();
         empty.setVisibility(hasReminders ? View.INVISIBLE : View.VISIBLE);
         recyclerView.setVisibility(hasReminders ? View.VISIBLE : View.INVISIBLE);
         adapter.notifyDataSetChanged();
     }
-
+//update click button callback handler
     @Override
     public void onUpdateClick(int position) {
         updateReminder(position);

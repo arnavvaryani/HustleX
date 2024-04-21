@@ -2,6 +2,7 @@ package com.psa.hustlex.arnav.models;
 
 import com.psa.hustlex.arnav.datastructures.NodeBag;
 
+//holds a list of activity logs
 public class BagOfLogs {
     private static BagOfLogs instance;
     private NodeBag<String> items;

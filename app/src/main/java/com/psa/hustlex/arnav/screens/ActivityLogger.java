@@ -11,6 +11,7 @@ import com.psa.hustlex.arnav.models.BagOfLogs;
 
 import java.util.ArrayList;
 
+// activity logger ui
 public class ActivityLogger extends AppCompatActivity {
     private NodeBag<String> items;
     private BagOfLogs bagOfLogs;
